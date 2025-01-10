@@ -14,17 +14,21 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Detailed display
+      - name: Compact display
         uses: lowlighter/metrics@latest
         with:
-          filename: metrics.plugin.achievements.svg
+          filename: metrics.plugin.achievements.compact.svg
           token: ${{ secrets.METRICS_TOKEN }}
           base: ""
           plugin_achievements: yes
-      - name: Repositories traffic
+          plugin_achievements_display: compact
+      - name: WakaTime
         uses: lowlighter/metrics@latest
         with:
-          filename: metrics.plugin.traffic.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          base: repositories
-          plugin_traffic: yes
+          filename: metrics.plugin.wakatime.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_wakatime: yes
+          plugin_wakatime_sections: time, projects, projects-graphs, languages, languages-graphs, editors, os
+          plugin_wakatime_days: 30
+          plugin_wakatime_token: ${{ secrets.WAKATIME_API_KEY }}
