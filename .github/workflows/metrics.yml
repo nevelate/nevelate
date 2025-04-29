@@ -14,14 +14,6 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Compact display
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics.plugin.achievements.compact.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          base: ""
-          plugin_achievements: yes
-          plugin_achievements_display: compact
       - name: WakaTime
         uses: lowlighter/metrics@latest
         with:
